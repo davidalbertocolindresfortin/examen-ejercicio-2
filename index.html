@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notas de La Universidad </title>
+    <style>
+        body {
+            margin: 0;
+            color: cornsilk;
+            background-color: cadetblue;
+        }
+
+        menu {
+            height: 50px;
+            background-color: blue;
+            box-shadow: 0 1px 5px #000;
+            display: flex;
+            margin-top: 0;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        menu a {
+            text-decoration: none;
+            color: aqua
+        }
+
+        .esconder {
+            display: none;
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        textarea {
+            width: 98%;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <menu>
+        <a href="" class="item-menu" data-elemento="inicio"> Menu de Notas </a>
+        <a href="" class="item-menu" data-elemento="configuracion"> Notas </a>
+    </menu>
+    <div id="contenedor">
+        <div id="inicio" class="pagina">
+            <img src="notas-de-post-sobre-el-escritorio-de-madera-2539084.jpg" alt="">
+
+            <h1></h1>
+        </div>
+        <div id="configuracion" class="pagina esconder">
+            <form action="">
+                <h1>Notas Principales</h1>
+                <input type="text" placeholder="Ingrese su Nombre" id="txt-Nombre">
+                <hr>
+                <textarea rows="10"></textarea>
+                <form action="">
+                </form>
+        </div>
+    </div>
+    <script>
+        const enlaces = document.getElementsByClassName('item-menu')
+        for (let i = 0; i < enlaces.length; i++) {
+            enlaces[i].addEventListener('click', function (e) {
+                e.preventDefault();
+                const idElemento = e.currentTarget.getAttribute('data-elemento');
+                console.log(idElemento);
+                const paginas = document.getElementsByClassName('pagina');
+                for (let j = 0; j < paginas.length; j++) {
+                    paginas[j].classList.add('esconder')
+                }
+                document.getElementById(idElemento).classList.remove('esconder');
+            })
+
+        }
+
+
+    </script>
+</body>
+
+</html>
